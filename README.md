@@ -1,4 +1,10 @@
 # Ruby Project Generator
+### Installation
+To install the ruby project generator you will need to run
+```
+gem install ruby-generator
+```
+
 ### How it works
 To generate a new ruby project type
 ```
