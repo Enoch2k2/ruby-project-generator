@@ -5,13 +5,21 @@ class Generator
   NC='\033[0m'
   CREATED = "#{GREEN}created#{NC}"
   ADDLINE = "#{GREEN}added#{NC}"
+  ERROR = "#{RED}Error#{NC}: "
     
   def run(array)
     if array[0] == "new"
       new(array[1])
+    elsif array[0] == "--help"
+      help
     else
-      puts "unknown command"
+      error("unknown command")
     end
+  end
+
+  def error(error_text)
+    system("printf '#{ERROR} #{GREEN}#{error_text}#{NC}\n'")
+    system("printf 'type #{GREEN}ruby-generator --help#{NC} for more options\n'")
   end
 
   def new(project)
@@ -53,6 +61,12 @@ class Generator
     system("cd #{path} && bundle install && rspec --init")
     add_line('--format d', "#{path}/.rspec")
     add_line('--color', "#{path}/.rspec")
+  end
+
+  def help
+    system("printf '\n#{GREEN}Ruby Generator Commands#{NC}\n'")
+    system("printf -- '-----------------------\n'")
+    system("printf '#{RED}new <project name>#{NC}   -   Creates a new ruby project.\n\n'")
   end
 
 end

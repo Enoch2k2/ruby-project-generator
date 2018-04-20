@@ -9,3 +9,9 @@ It will create the barebone skeleton of a ruby project, with rspec installed. Al
 Note: You will need bundler installed.
 
 To install bundler just type `gem install bundler`.
+
+### Commands
+To see a list of commands type `ruby-generator --help`.
+
+### Notes
+This project is a work in progress and also open source, if you would like to contribute. Feel free to send PRs!
